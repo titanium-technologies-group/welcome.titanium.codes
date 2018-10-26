@@ -1,1 +1,127 @@
-<html><head><title>Welcome</title></head><body></body></html>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+        <title>Welcome to Titanium</title>
+        <style>
+        body,
+        html {
+            padding: 0;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            height: 100%;
+            background: #000;
+        }
+
+        .gold-text {
+            font-weight: bold;
+            letter-spacing: 3px;
+            font-size: 38px;
+            color: gold;
+            position: relative;
+            line-height: 38px;
+        }
+
+        .gold-text:before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            font-weight: 100;
+        }
+
+        .white-text {
+            font-weight: bold;
+            letter-spacing: 3px;
+            font-size: 18px;
+        }
+
+        .white-text a {
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 3px;
+            color: gold;
+        }
+
+        .white-text a:before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            font-weight: 100;
+        }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="jumbotron bg-transparent">
+                <span class="white-text">Hi,</span> <span class="gold-text" id='firsName'></span>
+                <p class="white-text">
+                Welcome to our team. Please find in the table below your "key" to the company resources.
+                </p>
+                <p class="lead">
+                <div class="row">
+                    <div class="offset-md-2 col-md-9">
+                        <table class="table table-dark" style="width: auto">
+                            <tr>
+                                <td>Login</td>
+                                <td id="login"></td>
+                            </tr>
+                            <tr>
+                                <td>Password</td>
+                                <td>password</td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td id="email"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                </p>
+                <h3 class="gold-text">Instruction</h3>
+                <ul class="white-text">
+                    <li>Open <a href="https://admin.google.com">admin.google.com</a> and log in with email and password provided above.</li>
+                    <li>Open <a href="https://redmine.titanium-soft.com">redmine.titanium.codes</a> and login with your new Google account</a>
+                    <li>Open <a href="https://titanium-management.slack.com">titanium-management.slack.com</a>, sign in with your email address, use your login as nickname, add your photo (not the photo of your pet, please)</li>
+                    <li>Wait for the invitation letter to join the titanium-management team on slack</li>
+                </ul>
+                <h4 class="white-text">Please follow the links to find out about our Company Policy, what to do if you got sick and other important information and tips</h4>
+                <ul class="white-text">
+                    <li><a href="https://docs.google.com/document/d/1EmyNZVue02TaY-jRWatnnTvSfNJRnV6YaXJbIg0GeA4/edit" target="_blank">Company Policy</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1cHSUAGPwGbkEvdeAAcCRTI6kIK2zqy1yvqVnMddjnbQ/edit?usp=sharing" target="_blank">Vacation / absence policy</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/154FwstFuJwq424YQCTEZYAlHbsk8H_61MFK9BdRrMj0/edit" target="_blank">Clean desk policy</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/17cacBi4krLN-6m4vAeqbaK8x2qK9DI-dRDfaVG5ft48/edit" target="_blank">Clean fridge policy</a></li>
+                </ul>
+                <p class="lead white-text">
+                Subscibe to our social media:
+                <a href="https://www.instagram.com/titanium.live/"><i class="fab fa-instagram"></i>titanium.live</a>,
+                <a href="https://www.facebook.com/titanium.codesmd/"><i class="fab fa-facebook"></i>Titanium.Codes MD</a>,
+                <a href="https://www.youtube.com/channel/UCXtjFOimFgN19Sf4JAbjAiA"><i class="fab fa-youtube"></i>Titanium Codes</a>.
+                </p>
+                <i class="float-right">
+                    Best regards,<br />
+                    Titanium
+                </i>
+            </div>
+        </div>
+        <script>
+            function replaceValues(f = 'John', l = 'Doe') {
+                let firstName = f[0].toUpperCase() + f.substr(1, f.length - 1).toLowerCase()
+                const login = `${f.toLowerCase()}.${l.toLowerCase()}`
+                const email = `${login}@titanium-soft.com`
+                document.getElementById('firsName').innerHTML = firstName
+                document.getElementById('login').innerHTML = login
+                document.getElementById('email').innerHTML = email
+            }
+            const url = new URL(window.location.href);
+            const f = (null !== url.searchParams.get("f")) ? url.searchParams.get("f").replace(/ /g, '') : 'John';
+            const l = (null !== url.searchParams.get("l")) ? url.searchParams.get("l").replace(/ /g, '') : 'Doe';
+            replaceValues(f, l)
+        </script>
+    </body>
+</html>
